@@ -66,9 +66,6 @@ def aggiornamenti():
 
 
 @app.route("/iscriviti", methods=["POST"])
-# Sostituisci COMPLETAMENTE la funzione iscriviti() con questa
-
-@app.route("/iscriviti", methods=["POST"])
 def iscriviti():
     nome = request.form.get("nome", "").strip()
     cognome = request.form.get("cognome", "").strip()
@@ -100,8 +97,10 @@ def iscriviti():
         return redirect(url_for("aggiornamenti"))
 
     except Exception as e:
-        print("Errore salvataggio database:", e)
-        flash("Errore durante il salvataggio.")
+        import traceback
+        print("Errore salvataggio database:", repr(e))
+        traceback.print_exc()
+        flash(f"Errore durante il salvataggio: {e}")
         return redirect(url_for("aggiornamenti"))
 
     # 2) invia mail di benvenuto
@@ -225,7 +224,7 @@ def newsletter():
         errori = 0
 
         try:
-            server = smtplib.SMTP("smtp.gmail.com", 587)
+            server = smtplib.SMTP("smtp-relay.brevo.com", 587)
             server.starttls()
             server.login(mailuser, mailpass)
 
