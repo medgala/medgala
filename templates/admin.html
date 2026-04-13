@@ -1,0 +1,76 @@
+<!-- templates/admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:20px;
+      font-family: Arial, sans-serif;
+      background:#ffffff;
+      color:#111111;
+    }
+    h1{
+      color:#8b0000;
+    }
+    .azioni a{
+      display:inline-block;
+      margin-right:14px;
+      color:#8b0000;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+      font-size:14px;
+    }
+    th, td{
+      border:1px solid #dddddd;
+      padding:10px;
+      text-align:left;
+    }
+    th{
+      background:#8b0000;
+      color:#ffffff;
+    }
+  </style>
+</head>
+<body>
+  <h1>MED GALA Admin</h1>
+  <p>Total subscribers: {{ totale }}</p>
+
+  <div class="azioni">
+    <a href="/newsletter">Send Newsletter</a>
+    <a href="/esporta">Export CSV</a>
+    <a href="/logout">Logout</a>
+  </div>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>University</th>
+      <th>Date</th>
+    </tr>
+
+    {% for riga in righe %}
+    <tr>
+      <td>{{ riga["id"] }}</td>
+      <td>{{ riga["nome"] }}</td>
+      <td>{{ riga["cognome"] }}</td>
+      <td>{{ riga["mail"] }}</td>
+      <td>{{ riga["telefono"] }}</td>
+      <td>{{ riga["universita"] }}</td>
+      <td>{{ riga["datains"] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

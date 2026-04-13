@@ -1,0 +1,76 @@
+<!-- templates/newsletter.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Send Newsletter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#ffffff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+    }
+    .box{
+      width:92%;
+      max-width:700px;
+      border:1px solid #dddddd;
+      padding:24px;
+      box-sizing:border-box;
+    }
+    h1{
+      color:#8b0000;
+      margin-top:0;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px;
+      border:1px solid #cccccc;
+      box-sizing:border-box;
+      margin-bottom:14px;
+      font-size:15px;
+    }
+    textarea{
+      min-height:220px;
+      resize:vertical;
+    }
+    button{
+      padding:12px 20px;
+      border:none;
+      background:#8b0000;
+      color:white;
+      cursor:pointer;
+    }
+    .msg{
+      margin-bottom:12px;
+      color:#8b0000;
+      font-weight:bold;
+    }
+    a{
+      margin-left:14px;
+      color:#111111;
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Send Newsletter</h1>
+
+    {% if messaggioinfo != "" %}
+      <div class="msg">{{ messaggioinfo }}</div>
+    {% endif %}
+
+    <form method="post">
+      <input type="text" name="oggetto" placeholder="Subject" required>
+      <textarea name="testo" placeholder="Write your newsletter text here..." required></textarea>
+      <button type="submit">Send to All</button>
+      <a href="/admin">Back to Admin</a>
+    </form>
+  </div>
+</body>
+</html>

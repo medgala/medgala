@@ -1,0 +1,111 @@
+<!-- templates/aggiornamenti.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Receive Updates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:#ffffff;
+      color:#111111;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+    }
+    .box{
+      width:92%;
+      max-width:520px;
+      border:1px solid #dddddd;
+      padding:30px;
+      background:#ffffff;
+    }
+    h1{
+      margin-top:0;
+      color:#8b0000;
+      text-align:center;
+    }
+    label{
+      display:block;
+      margin-top:14px;
+      margin-bottom:6px;
+      font-size:14px;
+    }
+    input, select{
+      width:100%;
+      padding:12px;
+      border:1px solid #cccccc;
+      box-sizing:border-box;
+      font-size:15px;
+    }
+    button{
+      width:100%;
+      margin-top:22px;
+      padding:14px;
+      border:none;
+      background:#8b0000;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .messaggi{
+      text-align:center;
+      margin-bottom:12px;
+      color:#8b0000;
+    }
+    .back{
+      display:block;
+      text-align:center;
+      margin-top:18px;
+      color:#111111;
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Receive Updates</h1>
+
+    {% with messaggi = get_flashed_messages() %}
+      {% if messaggi %}
+        <div class="messaggi">
+          {% for m in messaggi %}
+            <div>{{ m }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/iscriviti" method="post">
+      <label>First Name</label>
+      <input type="text" name="nome" required>
+
+      <label>Last Name</label>
+      <input type="text" name="cognome" required>
+
+      <label>Email</label>
+      <input type="email" name="mail" required>
+
+      <label>Phone Number</label>
+      <input type="text" name="telefono" required>
+
+      <label>University</label>
+      <select name="universita" required>
+        <option value="">Select your university</option>
+        <option value="Humanitas University">Humanitas University</option>
+        <option value="University of Milan">University of Milan</option>
+        <option value="Vita-Salute San Raffaele University">Vita-Salute San Raffaele University</option>
+        <option value="University of Milano-Bicocca">University of Milano-Bicocca</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button type="submit">Join the Newsletter</button>
+    </form>
+
+    <a class="back" href="/">Back to Home</a>
+  </div>
+</body>
+</html>
