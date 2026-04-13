@@ -88,7 +88,7 @@ def iscriviti():
         cur.execute(
             """
             INSERT INTO iscritti (nome, cognome, mail, telefono, universita, datains)
-            VALUES (?, ?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s, %s)
             """,
             (nome, cognome, mail, telefono, universita, datains)
         )
