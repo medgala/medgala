@@ -92,16 +92,16 @@ def iscriviti():
         con.close()
         flash("Iscrizione completata.")
         try:
-    mailuser = os.getenv("MAILUSER")
-    mailpass = os.getenv("MAILPASS")
+            mailuser = os.getenv("MAILUSER")
+            mailpass = os.getenv("MAILPASS")
 
-    server = smtplib.SMTP("smtp-relay.brevo.com", 587)
-    server.starttls()
-    server.login(mailuser, mailpass)
+            server = smtplib.SMTP("smtp-relay.brevo.com", 587)
+            server.starttls()
+            server.login(mailuser, mailpass)
 
-    oggetto = "Welcome to MED GALA Milano"
+            oggetto = "Welcome to MED GALA Milano"
 
-    corpo = f"""Hello {nome},
+            corpo = f"""Hello {nome},
 
 You are now officially part of MED GALA Milano.
 
@@ -115,22 +115,21 @@ MED GALA Milano
 @medgalaofficial
 """
 
-    email = MIMEMultipart()
-    email["From"] = formataddr(("MED GALA Milano", mailuser))
-    email["To"] = mail
-    email["Subject"] = oggetto
-    email.attach(MIMEText(corpo, "plain"))
+            email = MIMEMultipart()
+            email["From"] = formataddr(("MED GALA Milano", mailuser))
+            email["To"] = mail
+            email["Subject"] = oggetto
+            email.attach(MIMEText(corpo, "plain"))
 
-    server.sendmail(mailuser, mail, email.as_string())
-    server.quit()
+            server.sendmail(mailuser, mail, email.as_string())
+            server.quit()
 
-except Exception as e:
-    print("Errore invio email:", e)
+        except Exception as e:
+            print("Errore invio email:", e)
     except sqlite3.IntegrityError:
         flash("Questa email è già iscritta.")
     except Exception:
         flash("Errore durante il salvataggio.")
-
     return redirect(url_for("aggiornamenti"))
 
 
