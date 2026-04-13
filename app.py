@@ -112,8 +112,10 @@ def iscriviti():
         mailpass = os.getenv("MAILPASS", "")
 
         if mailuser != "" and mailpass != "":
-            server = smtplib.SMTP("smtp-relay.brevo.com", 587)
+            server = smtplib.SMTP("smtp-relay.brevo.com", 587, timeout=10)
+            server.ehlo()
             server.starttls()
+            server.ehlo()
             server.login(mailuser, mailpass)
 
             oggetto = "Welcome to MED GALA Milano"
@@ -232,8 +234,10 @@ def newsletter():
         errori = 0
 
         try:
-            server = smtplib.SMTP("smtp-relay.brevo.com", 587)
+            server = smtplib.SMTP("smtp-relay.brevo.com", 587, timeout=10)
+            server.ehlo()
             server.starttls()
+            server.ehlo()
             server.login(mailuser, mailpass)
 
             for riga in lista:
