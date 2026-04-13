@@ -218,4 +218,4 @@ Email: medgala.milano@gmail.com
 
 if __name__ == "__main__":
     creabase()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000, debug=True)
