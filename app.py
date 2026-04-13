@@ -95,7 +95,7 @@ def iscriviti():
     mailuser = os.getenv("MAILUSER")
     mailpass = os.getenv("MAILPASS")
 
-    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server = smtplib.SMTP("smtp-relay.brevo.com", 587)
     server.starttls()
     server.login(mailuser, mailpass)
 
