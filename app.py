@@ -66,6 +66,9 @@ def aggiornamenti():
 
 
 @app.route("/iscriviti", methods=["POST"])
+# Sostituisci COMPLETAMENTE la funzione iscriviti() con questa
+
+@app.route("/iscriviti", methods=["POST"])
 def iscriviti():
     nome = request.form.get("nome", "").strip()
     cognome = request.form.get("cognome", "").strip()
@@ -78,6 +81,7 @@ def iscriviti():
         flash("Compila tutti i campi.")
         return redirect(url_for("aggiornamenti"))
 
+    # 1) salva nel database
     try:
         con = connessione()
         cur = con.cursor()
@@ -90,11 +94,22 @@ def iscriviti():
         )
         con.commit()
         con.close()
-        flash("Iscrizione completata.")
-        try:
-            mailuser = os.getenv("MAILUSER")
-            mailpass = os.getenv("MAILPASS")
 
+    except sqlite3.IntegrityError:
+        flash("Questa email è già iscritta.")
+        return redirect(url_for("aggiornamenti"))
+
+    except Exception as e:
+        print("Errore salvataggio database:", e)
+        flash("Errore durante il salvataggio.")
+        return redirect(url_for("aggiornamenti"))
+
+    # 2) invia mail di benvenuto
+    try:
+        mailuser = os.getenv("MAILUSER", "")
+        mailpass = os.getenv("MAILPASS", "")
+
+        if mailuser != "" and mailpass != "":
             server = smtplib.SMTP("smtp-relay.brevo.com", 587)
             server.starttls()
             server.login(mailuser, mailpass)
@@ -124,12 +139,10 @@ MED GALA Milano
             server.sendmail(mailuser, mail, email.as_string())
             server.quit()
 
-        except Exception as e:
-            print("Errore invio email:", e)
-    except sqlite3.IntegrityError:
-        flash("Questa email è già iscritta.")
-    except Exception:
-        flash("Errore durante il salvataggio.")
+    except Exception as e:
+        print("Errore invio email:", e)
+
+    flash("Iscrizione completata.")
     return redirect(url_for("aggiornamenti"))
 
 
