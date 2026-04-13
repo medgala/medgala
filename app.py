@@ -23,6 +23,9 @@ from email.utils import formataddr
 import os
 from datetime import datetime
 
+import psycopg
+from psycopg.rows import dict_row
+
 app = Flask(__name__)
 app.secret_key = "medgala_secret_key_change_this"
 
@@ -30,8 +33,8 @@ dbnome = "medgala.db"
 
 
 def connessione():
-    con = sqlite3.connect(dbnome)
-    con.row_factory = sqlite3.Row
+    url = os.getenv("DATABASE_URL", "")
+    con = psycopg.connect(url, row_factory=dict_row)
     return con
 
 
@@ -41,7 +44,7 @@ def creabase():
 
     cur.execute("""
     CREATE TABLE IF NOT EXISTS iscritti (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id SERIAL PRIMARY KEY,
         nome TEXT NOT NULL,
         cognome TEXT NOT NULL,
         mail TEXT NOT NULL UNIQUE,
@@ -92,7 +95,7 @@ def iscriviti():
         con.commit()
         con.close()
 
-    except sqlite3.IntegrityError:
+    except psycopg.errors.UniqueViolation:
         flash("Questa email è già iscritta.")
         return redirect(url_for("aggiornamenti"))
 
@@ -168,10 +171,11 @@ def admin():
         return redirect(url_for("login"))
 
     con = connessione()
-    dati = pd.read_sql_query("SELECT * FROM iscritti ORDER BY id DESC", con)
+    cur = con.cursor()
+    cur.execute("SELECT * FROM iscritti ORDER BY id DESC")
+    righe = cur.fetchall()
     con.close()
 
-    righe = dati.to_dict(orient="records")
     totale = len(righe)
 
     return render_template("admin.html", righe=righe, totale=totale)
@@ -183,8 +187,12 @@ def esporta():
         return redirect(url_for("login"))
 
     con = connessione()
-    dati = pd.read_sql_query("SELECT * FROM iscritti ORDER BY id DESC", con)
+    cur = con.cursor()
+    cur.execute("SELECT * FROM iscritti ORDER BY id DESC")
+    righe = cur.fetchall()
     con.close()
+
+    dati = pd.DataFrame(righe)
 
     nomefile = "iscritti_medgala.csv"
     dati.to_csv(nomefile, index=False)
