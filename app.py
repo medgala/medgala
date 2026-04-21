@@ -14,7 +14,6 @@
 # - il database viene creato automaticamente come medgala.db
 
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-import sqlite3
 import pandas as pd
 import smtplib
 from email.mime.text import MIMEText
@@ -135,7 +134,8 @@ MED GALA Milano
 """
 
             email = MIMEMultipart()
-            email["From"] = formataddr(("MED GALA Milano", mailuser))
+            email["From"] = formataddr(("MED GALA Milano", "newsletter@medgala.events"))
+            email["Reply-To"] = "info@medgala.events"
             email["To"] = mail
             email["Subject"] = oggetto
             email.attach(MIMEText(corpo, "plain"))
@@ -250,11 +250,12 @@ def newsletter():
 
 MED GALA Milano
 Instagram: @medgalaofficial
-Email: medgala.milano@gmail.com
+Email: info@medgala.events
 """
 
                 email = MIMEMultipart()
-                email["From"] = formataddr(("MED GALA Milano", mailuser))
+                email["From"] = formataddr(("MED GALA Milano", "newsletter@medgala.events"))
+                email["Reply-To"] = "info@medgala.events"
                 email["To"] = destinatario
                 email["Subject"] = oggetto
                 email.attach(MIMEText(corpo, "plain"))
