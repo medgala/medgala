@@ -256,3 +256,71 @@ font-size:36px;
 font-size:22px;
 }
 }
+
+html{
+scroll-behavior:smooth;
+}
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+right:0;
+z-index:1000;
+background:rgba(10,10,10,0.72);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.navbar-inner{
+max-width:1200px;
+height:64px;
+margin:auto;
+padding:0 24px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.nav-logo{
+font-family:"Playfair Display",serif;
+font-size:18px;
+letter-spacing:4px;
+color:#fff;
+text-decoration:none;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:34px;
+}
+
+.nav-links a{
+font-family:"Inter",sans-serif;
+font-size:11px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:rgba(255,255,255,0.72);
+text-decoration:none;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#fff;
+}
+
+.hero{
+padding-top:64px;
+}
+
+@media(max-width:768px){
+.nav-links{
+gap:16px;
+}
+
+.nav-links a{
+font-size:10px;
+letter-spacing:2px;
+}
+}
