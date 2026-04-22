@@ -462,3 +462,88 @@ font-size:32px;
 grid-template-columns:1fr;
 }
 }
+
+.countdown{
+position:relative;
+padding:120px 24px;
+background:url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1600&auto=format&fit=crop') center center/cover no-repeat;
+color:#fff;
+text-align:center;
+}
+
+.countdown-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.62);
+}
+
+.countdown-inner{
+position:relative;
+z-index:2;
+max-width:1100px;
+margin:auto;
+}
+
+.countdown-label{
+font-size:12px;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#c9b28d;
+margin-bottom:18px;
+}
+
+.countdown-title{
+font-family:"Playfair Display",serif;
+font-size:52px;
+margin-bottom:18px;
+}
+
+.countdown-text{
+max-width:720px;
+margin:0 auto;
+line-height:1.9;
+opacity:0.85;
+font-size:16px;
+}
+
+.count-grid{
+margin-top:50px;
+display:grid;
+grid-template-columns:repeat(4,minmax(0,1fr));
+gap:18px;
+}
+
+.count-box{
+padding:28px 10px;
+border:1px solid rgba(255,255,255,0.18);
+background:rgba(255,255,255,0.04);
+}
+
+.count-box span{
+display:block;
+font-family:"Playfair Display",serif;
+font-size:52px;
+line-height:1;
+}
+
+.count-box small{
+display:block;
+margin-top:10px;
+font-size:11px;
+letter-spacing:3px;
+opacity:0.75;
+}
+
+@media(max-width:768px){
+.countdown-title{
+font-size:36px;
+}
+
+.count-grid{
+grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.count-box span{
+font-size:36px;
+}
+}

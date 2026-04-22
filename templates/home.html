@@ -172,3 +172,72 @@
 
 </body>
 </html>
+
+<section class="countdown" id="event">
+  <div class="countdown-overlay"></div>
+
+  <div class="countdown-inner">
+
+    <p class="countdown-label">EVENT INFO</p>
+
+    <h2 class="countdown-title">
+      Milano · June 2026
+    </h2>
+
+    <p class="countdown-text">
+      Dress code elegante.  
+      Venue e ticket release comunicati in anteprima agli iscritti.
+    </p>
+
+    <div class="count-grid">
+
+      <div class="count-box">
+        <span id="days">00</span>
+        <small>DAYS</small>
+      </div>
+
+      <div class="count-box">
+        <span id="hours">00</span>
+        <small>HOURS</small>
+      </div>
+
+      <div class="count-box">
+        <span id="minutes">00</span>
+        <small>MINUTES</small>
+      </div>
+
+      <div class="count-box">
+        <span id="seconds">00</span>
+        <small>SECONDS</small>
+      </div>
+
+    </div>
+
+    <a href="/aggiornamenti" class="btn">
+      GET EARLY ACCESS
+    </a>
+
+  </div>
+</section>
+
+<script>
+const targetDate = new Date("June 20, 2026 23:00:00").getTime();
+
+setInterval(function(){
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  const d = Math.floor(distance / (1000*60*60*24));
+  const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const m = Math.floor((distance % (1000*60*60)) / (1000*60));
+  const s = Math.floor((distance % (1000*60)) / 1000);
+
+  document.getElementById("days").innerHTML = String(d).padStart(2,"0");
+  document.getElementById("hours").innerHTML = String(h).padStart(2,"0");
+  document.getElementById("minutes").innerHTML = String(m).padStart(2,"0");
+  document.getElementById("seconds").innerHTML = String(s).padStart(2,"0");
+},1000);
+</script>
+
+</body>
+</html>
