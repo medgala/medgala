@@ -93,7 +93,46 @@ def iscriviti():
         )
         con.commit()
         con.close()
+    try:
+        mailuser = os.getenv("MAILUSER", "")
+        mailpass = os.getenv("MAILPASS", "")
 
+        if mailuser and mailpass:
+            server = smtplib.SMTP("smtp-relay.brevo.com", 587, timeout=10)
+            server.starttls()
+            server.login(mailuser, mailpass)
+
+            oggetto = "Benvenuto in MED GALA Milano"
+
+            corpo = f"""Ciao {nome},
+
+sei ufficialmente entrato nella community di MED GALA Milano.
+
+Riceverai in anteprima:
+• aggiornamenti sull’evento
+• lancio biglietti
+• novità esclusive
+• comunicazioni ufficiali
+
+A presto,
+
+MED GALA Milano
+Instagram: @medgalaofficial
+Email: info@medgala.events
+"""
+
+            email = MIMEMultipart()
+            email["From"] = formataddr(("MED GALA Milano", "newsletter@medgala.events"))
+            email["Reply-To"] = "info@medgala.events"
+            email["To"] = mail
+            email["Subject"] = oggetto
+            email.attach(MIMEText(corpo, "plain"))
+
+            server.sendmail(mailuser, mail, email.as_string())
+            server.quit()
+
+    except Exception as e:
+        print("Errore welcome email:", e)
     except psycopg.errors.UniqueViolation:
         flash("Questa email è già iscritta.")
         return redirect(url_for("aggiornamenti"))
