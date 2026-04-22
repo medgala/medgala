@@ -1,86 +1,93 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MED GALA Milano</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MED GALA Milano</title>
+  <meta name="description" content="The first interuniversity gala for medical students in Milan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
-<nav class="navbar">
+<header class="navbar">
   <div class="navbar-inner">
     <a href="/" class="nav-logo">MED GALA</a>
 
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#highlights">Highlights</a>
-      <a href="/aggiornamenti">Early Access</a>
-      <a href="mailto:partners@medgala.events">Contact</a>
+      <a href="#universities">Universities</a>
+      <a href="#tickets">Tickets</a>
+      <a href="#partners">Partners</a>
+      <a href="/aggiornamenti" class="nav-cta">Early Access</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://media.base44.com/images/public/69d8d00039b0e87f8dc895f4/09f33fd90_generated_2b682279.png" alt="MED GALA atmosphere">
+    <div class="hero-overlay"></div>
+    <div class="hero-gradient"></div>
+  </div>
+
+  <div class="hero-content">
+    <p class="eyebrow">MILAN · JUNE 2026</p>
+    <h1>MED GALA</h1>
+    <p class="hero-subtitle">The first interuniversity gala for medical students in Milan</p>
+    <p class="hero-tagline">Where Medicine Meets Elegance</p>
+
+    <div class="hero-buttons">
+      <a href="/aggiornamenti" class="btn btn-light">GET EARLY ACCESS</a>
+      <a href="#tickets" class="btn btn-ghost">EXPLORE TICKETS</a>
+    </div>
+
+    <div class="hero-meta">
+      <span>Networking</span>
+      <span>Red Carpet</span>
+      <span>Standing Dinner</span>
+      <span>After Dinner Party</span>
     </div>
   </div>
-</nav>
 
-<section class="hero">
-  <div class="overlay"></div>
-
-  <div class="content">
-    <h1>MED GALA</h1>
-
-    <p class="sub">
-      Il primo gala interuniversitario degli studenti di medicina di Milano
-    </p>
-
-    <p class="tag">
-      Where Medicine Meets Elegance
-    </p>
-
-    <a href="/aggiornamenti" class="btn">
-      GET EARLY ACCESS
-    </a>
-  </div>
-
-  <div class="scroll"></div>
+  <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+    <span></span>
+  </a>
 </section>
 
-<section class="about" id="about">
-  <div class="about-wrap">
-    <div class="about-text">
-      <p class="about-label">ABOUT</p>
-
-      <h2>
-        The Future of<br>
-        <span>MED GALA</span><br>
-        Begins Here
-      </h2>
-
-      <div class="line"></div>
-
-      <p class="about-description">
-        MED GALA Milano nasce per creare il primo evento interuniversitario dedicato agli studenti di medicina di Milano.
-        Una notte pensata per connettere talento, eleganza e community in una nuova esperienza iconica.
+<section class="about section-light" id="about">
+  <div class="container two-col">
+    <div class="text-block">
+      <p class="section-label">ABOUT</p>
+      <h2>The Future of <span>MED GALA</span> Begins Here</h2>
+      <div class="section-line"></div>
+      <p class="section-text">
+        MED GALA Milano is designed to become the reference annual night for medical students across Milan.
+        A new format where elegance, community and ambition meet in one iconic setting.
+      </p>
+      <p class="section-text">
+        More than a party, it is a shared experience for the next generation of doctors and healthcare professionals.
       </p>
     </div>
 
-    <div class="about-image-box">
-      <img src="https://media.base44.com/images/public/69d8d00039b0e87f8dc895f4/b43f383c8_generated_1fe3020b.png" alt="MED GALA">
-      <div class="about-frame"></div>
+    <div class="image-frame">
+      <img src="https://media.base44.com/images/public/69d8d00039b0e87f8dc895f4/b43f383c8_generated_1fe3020b.png" alt="Elegant gala atmosphere">
+      <div class="frame-border"></div>
     </div>
   </div>
 </section>
 
-<section class="highlights" id="highlights">
-  <div class="highlights-container">
-
-    <div class="highlights-head">
-      <p class="highlights-label">HIGHLIGHTS</p>
+<section class="highlights section-white" id="highlights">
+  <div class="container">
+    <div class="section-head center">
+      <p class="section-label">HIGHLIGHTS</p>
       <h2>What Defines the Experience</h2>
     </div>
 
-    <div class="highlights-grid">
+    <div class="highlights-layout">
       <div class="highlights-image">
         <img src="https://media.base44.com/images/public/69d8d00039b0e87f8dc895f4/38a9dd8f5_generated_46126f6d.png" alt="Elegant dinner setup">
       </div>
@@ -90,381 +97,232 @@
           <div class="highlight-icon">✦</div>
           <p>Networking</p>
         </div>
-
         <div class="highlight-item">
           <div class="highlight-icon">✦</div>
           <p>Red Carpet</p>
         </div>
-
-        <div class="highlight-item">
-          <div class="highlight-icon">✦</div>
-          <p>After Dinner Party</p>
-        </div>
-
         <div class="highlight-item">
           <div class="highlight-icon">✦</div>
           <p>Standing Dinner</p>
         </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">✦</div>
+          <p>After Dinner Party</p>
+        </div>
       </div>
     </div>
-
   </div>
 </section>
 
-</body>
-</html>
+<section class="stats section-dark">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span>4+</span>
+        <small>UNIVERSITIES</small>
+      </div>
+      <div class="stat-card">
+        <span>500+</span>
+        <small>EXPECTED GUESTS</small>
+      </div>
+      <div class="stat-card">
+        <span>1</span>
+        <small>ICONIC NIGHT</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="universities section-light" id="universities">
+  <div class="container">
+    <div class="section-head center narrow-head">
+      <p class="section-label">UNIVERSITIES</p>
+      <h2>Students From Milan's Leading Medical Universities</h2>
+    </div>
+
+    <div class="universities-grid">
+      <div class="uni-card">Humanitas University</div>
+      <div class="uni-card">Università degli Studi di Milano</div>
+      <div class="uni-card">Vita-Salute San Raffaele</div>
+      <div class="uni-card">Università Milano-Bicocca</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery section-white" id="moments">
+  <div class="container">
+    <div class="section-head center">
+      <p class="section-label">AESTHETIC</p>
+      <h2>The Atmosphere We’re Creating</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-card tall">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Gala crowd">
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop" alt="Elegant dinner">
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1200&auto=format&fit=crop" alt="Night party">
+      </div>
+      <div class="gallery-card wide">
+        <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1400&auto=format&fit=crop" alt="Luxury event">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tickets section-dark" id="tickets">
+  <div class="container narrow">
+    <div class="section-head center">
+      <p class="section-label">TICKETS</p>
+      <h2>Secure Your Place At MED GALA</h2>
+      <p class="section-text center-text">
+        Priority access is reserved for members of the early access list.
+        Public ticket release coming soon.
+      </p>
+    </div>
+
+    <div class="tickets-buttons">
+      <a href="/aggiornamenti" class="btn btn-light">JOIN EARLY ACCESS</a>
+      <a href="#" class="btn btn-ghost">TICKETS COMING SOON</a>
+    </div>
+  </div>
+</section>
+
+<section class="countdown section-image" id="event">
+  <div class="countdown-overlay"></div>
+  <div class="container narrow countdown-content">
+    <p class="section-label light-label">EVENT INFO</p>
+    <h2 class="countdown-title">Milano · June 2026</h2>
+    <p class="countdown-text">
+      Elegant dress code. Venue reveal and ticket release will be shared first with registered members.
+    </p>
+
+    <div class="count-grid">
+      <div class="count-box"><span id="days">00</span><small>DAYS</small></div>
+      <div class="count-box"><span id="hours">00</span><small>HOURS</small></div>
+      <div class="count-box"><span id="minutes">00</span><small>MINUTES</small></div>
+      <div class="count-box"><span id="seconds">00</span><small>SECONDS</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="partners section-white" id="partners">
+  <div class="container">
+    <div class="section-head center">
+      <p class="section-label">PARTNERSHIPS</p>
+      <h2>Brands Ready To Be Part Of Something Iconic</h2>
+      <p class="section-text center-text">
+        MED GALA Milano offers premium brand visibility, live event integration and direct access to one of Milan’s most ambitious student audiences.
+      </p>
+    </div>
+
+    <div class="partners-grid">
+      <div class="partner-card">
+        <h3>Beverage Partners</h3>
+        <p>Energy drinks, premium soft drinks and signature activations.</p>
+      </div>
+      <div class="partner-card">
+        <h3>Beauty & Cosmetics</h3>
+        <p>Skincare, fragrance, gifting and on-site branded touchpoints.</p>
+      </div>
+      <div class="partner-card">
+        <h3>Fashion & Lifestyle</h3>
+        <p>Image alignment with an aspirational and highly social audience.</p>
+      </div>
+      <div class="partner-card">
+        <h3>Medical & Tech</h3>
+        <p>Direct brand exposure to future doctors and healthcare professionals.</p>
+      </div>
+    </div>
+
+    <div class="center-button">
+      <a href="mailto:partners@medgala.events" class="btn btn-dark">BECOME A PARTNER</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq section-dark" id="faq">
+  <div class="container narrow">
+    <div class="section-head center">
+      <p class="section-label light-label">FAQ</p>
+      <h2>Everything You Need To Know</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Who can attend MED GALA?</summary>
+        <p>Medical students and selected guests connected to Milan universities.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I get access?</summary>
+        <p>Join the early access list and receive priority updates before the public release.</p>
+      </details>
+      <details class="faq-item">
+        <summary>When will tickets be released?</summary>
+        <p>Official release dates will be communicated first to registered members.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is the dress code?</summary>
+        <p>Elegant attire recommended. Think gala night atmosphere.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="finalcta section-gradient" id="guestlist">
+  <div class="container narrow center">
+    <p class="section-label light-label">LAST CALL</p>
+    <h2>Be First. Be There.</h2>
+    <p class="section-text center-text light-text">
+      Join the official guest list and receive venue reveal, ticket access and exclusive updates before everyone else.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="/aggiornamenti" class="btn btn-light">JOIN NOW</a>
+      <a href="https://instagram.com/medgalaofficial" target="_blank" class="btn btn-ghost">INSTAGRAM</a>
+    </div>
+  </div>
+</section>
 
 <footer class="footer">
-  <div class="footer-inner">
-
+  <div class="container footer-inner">
     <div class="footer-brand">
       <p class="footer-title">MED GALA Milano</p>
       <div class="footer-line"></div>
     </div>
 
     <div class="footer-links">
-      <a href="https://instagram.com/medgalaofficial" target="_blank">
-        @medgalaofficial
-      </a>
-
-      <a href="mailto:info@medgala.events">
-        info@medgala.events
-      </a>
+      <a href="https://instagram.com/medgalaofficial" target="_blank">@medgalaofficial</a>
+      <a href="mailto:info@medgala.events">info@medgala.events</a>
+      <a href="mailto:partners@medgala.events">partners@medgala.events</a>
     </div>
 
-    <p class="footer-copy">
-      © 2026 MED GALA Milano. All rights reserved.
-    </p>
-
+    <p class="footer-copy">© 2026 MED GALA Milano. All rights reserved.</p>
   </div>
 </footer>
 
-</body>
-</html>
-
-<section class="universities" id="universities">
-  <div class="universities-inner">
-
-    <p class="universities-label">UNIVERSITIES</p>
-
-    <h2 class="universities-title">
-      Students from Milan's Leading Medical Universities
-    </h2>
-
-    <div class="universities-grid">
-
-      <div class="uni-card">Humanitas University</div>
-
-      <div class="uni-card">Università degli Studi di Milano</div>
-
-      <div class="uni-card">Vita-Salute San Raffaele</div>
-
-      <div class="uni-card">Università Milano-Bicocca</div>
-
-    </div>
-
-    <a href="/aggiornamenti" class="uni-btn">
-      JOIN THE GUEST LIST
-    </a>
-
-  </div>
-</section>
-
-</body>
-</html>
-
-<section class="countdown" id="event">
-  <div class="countdown-overlay"></div>
-
-  <div class="countdown-inner">
-
-    <p class="countdown-label">EVENT INFO</p>
-
-    <h2 class="countdown-title">
-      Milano · June 2026
-    </h2>
-
-    <p class="countdown-text">
-      Dress code elegante.  
-      Venue e ticket release comunicati in anteprima agli iscritti.
-    </p>
-
-    <div class="count-grid">
-
-      <div class="count-box">
-        <span id="days">00</span>
-        <small>DAYS</small>
-      </div>
-
-      <div class="count-box">
-        <span id="hours">00</span>
-        <small>HOURS</small>
-      </div>
-
-      <div class="count-box">
-        <span id="minutes">00</span>
-        <small>MINUTES</small>
-      </div>
-
-      <div class="count-box">
-        <span id="seconds">00</span>
-        <small>SECONDS</small>
-      </div>
-
-    </div>
-
-    <a href="/aggiornamenti" class="btn">
-      GET EARLY ACCESS
-    </a>
-
-  </div>
-</section>
-
 <script>
 const targetDate = new Date("June 20, 2026 23:00:00").getTime();
-
 setInterval(function(){
   const now = new Date().getTime();
   const distance = targetDate - now;
-
-  const d = Math.floor(distance / (1000*60*60*24));
-  const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-  const m = Math.floor((distance % (1000*60*60)) / (1000*60));
-  const s = Math.floor((distance % (1000*60)) / 1000);
-
-  document.getElementById("days").innerHTML = String(d).padStart(2,"0");
-  document.getElementById("hours").innerHTML = String(h).padStart(2,"0");
-  document.getElementById("minutes").innerHTML = String(m).padStart(2,"0");
-  document.getElementById("seconds").innerHTML = String(s).padStart(2,"0");
+  const d = Math.max(0, Math.floor(distance / (1000*60*60*24)));
+  const h = Math.max(0, Math.floor((distance % (1000*60*60*24)) / (1000*60*60)));
+  const m = Math.max(0, Math.floor((distance % (1000*60*60)) / (1000*60)));
+  const s = Math.max(0, Math.floor((distance % (1000*60)) / 1000));
+  const dd = document.getElementById("days");
+  const hh = document.getElementById("hours");
+  const mm = document.getElementById("minutes");
+  const ss = document.getElementById("seconds");
+  if(dd) dd.innerHTML = String(d).padStart(2,"0");
+  if(hh) hh.innerHTML = String(h).padStart(2,"0");
+  if(mm) mm.innerHTML = String(m).padStart(2,"0");
+  if(ss) ss.innerHTML = String(s).padStart(2,"0");
 },1000);
 </script>
-
-</body>
-</html>
-
-<section class="sponsors" id="partners">
-  <div class="sponsors-inner">
-
-    <p class="sponsors-label">PARTNERSHIPS</p>
-
-    <h2 class="sponsors-title">
-      Brands Ready To Be Part Of Something Iconic
-    </h2>
-
-    <p class="sponsors-text">
-      MED GALA Milano offre partnership premium con forte esposizione digitale,
-      presenza live durante l’evento e accesso diretto al target universitario più ambizioso di Milano.
-    </p>
-
-    <div class="sponsors-grid">
-
-      <div class="sponsor-card">
-        <h3>Beverage Partners</h3>
-        <p>Energy drink, premium soft drinks, signature bar activations.</p>
-      </div>
-
-      <div class="sponsor-card">
-        <h3>Beauty & Cosmetics</h3>
-        <p>Skincare, fragrance, makeup e gifting placement.</p>
-      </div>
-
-      <div class="sponsor-card">
-        <h3>Fashion & Lifestyle</h3>
-        <p>Brand visibility, styling presence, premium audience reach.</p>
-      </div>
-
-      <div class="sponsor-card">
-        <h3>Medical & Tech</h3>
-        <p>Innovazione, education, future healthcare audience connection.</p>
-      </div>
-
-    </div>
-
-    <a href="mailto:partners@medgala.events" class="partner-btn">
-      BECOME A PARTNER
-    </a>
-
-  </div>
-</section>
-
-</body>
-</html>
-
-<section class="faq" id="faq">
-  <div class="faq-inner">
-
-    <p class="faq-label">FAQ</p>
-
-    <h2 class="faq-title">
-      Everything You Need To Know
-    </h2>
-
-    <div class="faq-list">
-
-      <details class="faq-item">
-        <summary>Who can attend MED GALA?</summary>
-        <p>Students of medicine and selected guests from Milan universities.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>How do I get access?</summary>
-        <p>Join the early access list and receive priority information before public release.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>When will tickets be released?</summary>
-        <p>Official release dates will be communicated first to registered members.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>What is the dress code?</summary>
-        <p>Elegant attire recommended. Think gala night atmosphere.</p>
-      </details>
-
-    </div>
-
-    <a href="/aggiornamenti" class="faq-btn">
-      JOIN EARLY ACCESS
-    </a>
-
-  </div>
-</section>
-
-</body>
-</html>
-
-<section class="finalcta" id="guestlist">
-  <div class="finalcta-inner">
-
-    <p class="finalcta-label">LAST CALL</p>
-
-    <h2 class="finalcta-title">
-      Be First. Be There.
-    </h2>
-
-    <p class="finalcta-text">
-      Join the official guest list and receive venue reveal, ticket access
-      and exclusive updates before everyone else.
-    </p>
-
-    <div class="finalcta-buttons">
-      <a href="/aggiornamenti" class="final-btn primary-btn">
-        JOIN NOW
-      </a>
-
-      <a href="https://instagram.com/medgalaofficial" target="_blank" class="final-btn ghost-btn">
-        INSTAGRAM
-      </a>
-    </div>
-
-  </div>
-</section>
-
-</body>
-</html>
-
-<section class="socialproof" id="community">
-  <div class="socialproof-inner">
-
-    <p class="socialproof-label">COMMUNITY</p>
-
-    <h2 class="socialproof-title">
-      Built For The Next Generation Of Doctors
-    </h2>
-
-    <p class="socialproof-text">
-      Students from Milan’s leading medical universities.
-      One city. One iconic night.
-    </p>
-
-    <div class="stats-grid">
-
-      <div class="stat-box">
-        <span>4+</span>
-        <small>UNIVERSITIES</small>
-      </div>
-
-      <div class="stat-box">
-        <span>500+</span>
-        <small>EXPECTED GUESTS</small>
-      </div>
-
-      <div class="stat-box">
-        <span>1</span>
-        <small>ICONIC NIGHT</small>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-</body>
-</html>
-
-<section class="gallery" id="moments">
-  <div class="gallery-inner">
-
-    <p class="gallery-label">AESTHETIC</p>
-
-    <h2 class="gallery-title">
-      The Atmosphere We’re Creating
-    </h2>
-
-    <div class="gallery-grid">
-
-      <div class="gallery-card tall">
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Gala crowd">
-      </div>
-
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop" alt="Elegant dinner">
-      </div>
-
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1200&auto=format&fit=crop" alt="Night party">
-      </div>
-
-      <div class="gallery-card wide">
-        <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1400&auto=format&fit=crop" alt="Luxury event">
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-</body>
-</html>
-
-<section class="tickets" id="tickets">
-  <div class="tickets-inner">
-
-    <p class="tickets-label">TICKETS</p>
-
-    <h2 class="tickets-title">
-      Secure Your Place At MED GALA
-    </h2>
-
-    <p class="tickets-text">
-      Priority access is reserved for members of the early access list.  
-      Public ticket release coming soon.
-    </p>
-
-    <div class="tickets-buttons">
-
-      <a href="/aggiornamenti" class="ticket-btn ticket-primary">
-        JOIN EARLY ACCESS
-      </a>
-
-      <a href="#" class="ticket-btn ticket-secondary">
-        TICKETS COMING SOON
-      </a>
-
-    </div>
-
-  </div>
-</section>
 
 </body>
 </html>
