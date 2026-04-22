@@ -391,3 +391,74 @@ flex-direction:column;
 gap:14px;
 }
 }
+
+.universities{
+background:#f7f5f2;
+padding:110px 24px;
+color:#111;
+}
+
+.universities-inner{
+max-width:1200px;
+margin:auto;
+text-align:center;
+}
+
+.universities-label{
+font-size:12px;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#9c835a;
+margin-bottom:18px;
+}
+
+.universities-title{
+font-family:"Playfair Display",serif;
+font-size:46px;
+line-height:1.15;
+max-width:760px;
+margin:0 auto 50px auto;
+}
+
+.universities-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:18px;
+max-width:900px;
+margin:0 auto;
+}
+
+.uni-card{
+padding:24px;
+background:#ffffff;
+border:1px solid rgba(0,0,0,0.08);
+font-size:15px;
+letter-spacing:0.5px;
+}
+
+.uni-btn{
+display:inline-block;
+margin-top:45px;
+padding:16px 42px;
+border:1px solid #111;
+color:#111;
+text-decoration:none;
+font-size:12px;
+letter-spacing:4px;
+transition:0.3s;
+}
+
+.uni-btn:hover{
+background:#111;
+color:#fff;
+}
+
+@media(max-width:768px){
+.universities-title{
+font-size:32px;
+}
+
+.universities-grid{
+grid-template-columns:1fr;
+}
+}
