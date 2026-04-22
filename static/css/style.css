@@ -796,3 +796,79 @@ color:#111;
 font-size:38px;
 }
 }
+
+.socialproof{
+padding:120px 24px;
+background:#f7f5f2;
+color:#111;
+text-align:center;
+}
+
+.socialproof-inner{
+max-width:1000px;
+margin:auto;
+}
+
+.socialproof-label{
+font-size:12px;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#9c835a;
+margin-bottom:18px;
+}
+
+.socialproof-title{
+font-family:"Playfair Display",serif;
+font-size:50px;
+line-height:1.12;
+margin-bottom:18px;
+}
+
+.socialproof-text{
+font-size:16px;
+line-height:1.9;
+color:#555;
+max-width:720px;
+margin:0 auto;
+}
+
+.stats-grid{
+margin-top:55px;
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:20px;
+}
+
+.stat-box{
+padding:34px 18px;
+background:#fff;
+border:1px solid rgba(0,0,0,0.08);
+}
+
+.stat-box span{
+display:block;
+font-family:"Playfair Display",serif;
+font-size:54px;
+line-height:1;
+margin-bottom:12px;
+}
+
+.stat-box small{
+font-size:11px;
+letter-spacing:3px;
+color:#777;
+}
+
+@media(max-width:768px){
+.socialproof-title{
+font-size:34px;
+}
+
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+.stat-box span{
+font-size:42px;
+}
+}
