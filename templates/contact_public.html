@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MED GALA Milano – Contact</title>
+  <meta name="description" content="Contact and partnerships for MED GALA Milano.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body data-page="contact">
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a href="/" class="brand">MED GALA</a>
+
+    <nav class="nav-desktop">
+      <a href="/" class="nav-link" data-i18n="nav.home">Home</a>
+      <a href="/contact" class="nav-link active-link" data-i18n="nav.contact">Contact</a>
+      <div class="lang-switch desktop-lang">
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+        <span>|</span>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </nav>
+
+    <div class="mobile-actions">
+      <div class="lang-switch mobile-lang">
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+        <span>|</span>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button type="button" class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/contact" data-i18n="nav.contact">Contact</a>
+  </div>
+</header>
+
+<section class="contact-hero">
+  <div class="section-shell narrow-center">
+    <p class="section-label" id="contactLabel"></p>
+    <h1 class="contact-title" id="contactHeading"></h1>
+    <div class="section-line center-line"></div>
+    <p class="section-text center-text" id="contactIntro"></p>
+  </div>
+</section>
+
+<section class="contact-categories light-grey-section">
+  <div class="section-shell three-col" id="contactSectionsWrap"></div>
+</section>
+
+<section class="contact-form-section">
+  <div class="section-shell narrow-center">
+    <h2 class="center-title contact-form-title" id="contactFormTitle"></h2>
+
+    <div class="contact-links">
+      <a href="mailto:info@medgala.events">info@medgala.events</a>
+      <a href="https://instagram.com/medgalaofficial" target="_blank" rel="noopener noreferrer">@medgalaofficial</a>
+    </div>
+
+    <form id="contactForm" class="contact-form">
+      <div class="field">
+        <label id="nameLabel"></label>
+        <input type="text" id="nameField">
+      </div>
+
+      <div class="field">
+        <label id="emailLabel"></label>
+        <input type="email" id="emailField">
+      </div>
+
+      <div class="field">
+        <label id="messageLabel"></label>
+        <textarea id="messageField"></textarea>
+      </div>
+
+      <button type="submit" id="sendButton" class="form-submit"></button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="section-shell footer-shell">
+    <p class="footer-brand">MED GALA Milano</p>
+    <div class="footer-line"></div>
+
+    <div class="footer-links">
+      <a href="https://instagram.com/medgalaofficial" target="_blank" rel="noopener noreferrer">@medgalaofficial</a>
+      <a href="mailto:info@medgala.events">info@medgala.events</a>
+    </div>
+
+    <p class="footer-copy">© 2026 MED GALA Milano. <span id="footerRights"></span></p>
+  </div>
+</footer>
+
+<div class="toast-box" id="toastBox"></div>
+
+<script src="/static/js/lang.js"></script>
+</body>
+</html>

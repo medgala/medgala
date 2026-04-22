@@ -275,6 +275,11 @@ Email: info@medgala.events
     return render_template("newsletter.html", messaggioinfo=messaggioinfo)
 
 
+@app.route("/contact")
+def contact_public():
+    return render_template("contact_public.html")
+
+
 if __name__ == "__main__":
     creabase()
     app.run(host="0.0.0.0", port=10000, debug=True)
