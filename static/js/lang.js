@@ -26,7 +26,7 @@ const translations = {
       heading: "Event Information",
       details: [
         { label: "Location", value: "Milan" },
-        { label: "Date", value: "June 2026" },
+        { label: "Date", value: "?/?/2026" },
         { label: "Dress Code", value: "Black Tie" },
       ],
     },
@@ -86,7 +86,7 @@ const translations = {
       heading: "Informazioni sull'Evento",
       details: [
         { label: "Luogo", value: "Milano" },
-        { label: "Data", value: "Giugno 2026" },
+        { label: "Data", value: "?/?/2026" },
         { label: "Dress Code", value: "Black Tie" },
       ],
     },
