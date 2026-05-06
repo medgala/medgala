@@ -67,6 +67,7 @@ def aggiornamenti():
     return render_template("aggiornamenti.html")
 
 
+
 @app.route("/iscriviti", methods=["POST"])
 def iscriviti():
     nome = request.form.get("nome", "").strip()
@@ -80,7 +81,6 @@ def iscriviti():
         flash("Compila tutti i campi.")
         return redirect(url_for("aggiornamenti"))
 
-    # 1) salva nel database
     try:
         con = connessione()
         cur = con.cursor()
@@ -93,6 +93,16 @@ def iscriviti():
         )
         con.commit()
         con.close()
+
+    except psycopg.errors.UniqueViolation:
+        flash("Questa email è già iscritta.")
+        return redirect(url_for("aggiornamenti"))
+
+    except Exception as e:
+        print("Errore salvataggio database:", repr(e))
+        flash(f"Errore durante il salvataggio: {e}")
+        return redirect(url_for("aggiornamenti"))
+
     try:
         mailuser = os.getenv("MAILUSER", "")
         mailpass = os.getenv("MAILPASS", "")
@@ -106,70 +116,45 @@ def iscriviti():
 
             corpo = f"""Ciao {nome},
 
-sei ufficialmente entrato nella community di MED GALA Milano.
+il tuo accesso prioritario a MED GALA Milano è confermato.
 
-Riceverai in anteprima:
-• aggiornamenti sull’evento
-• lancio biglietti
-• novità esclusive
-• comunicazioni ufficiali
+Sei ora parte della community che riceverà in anteprima tutte le informazioni sul primo gala interuniversitario dedicato agli studenti di medicina di Milano.
+
+Nelle prossime settimane riceverai:
+• aggiornamenti esclusivi
+• ticket release
+• dettagli sulla venue
+• informazioni ufficiali sull’evento
+
+Una notte pensata per unire medicina, eleganza e connessione in un’esperienza unica.
 
 A presto,
 
 MED GALA Milano
-Instagram: @medgalaofficial
-Email: info@medgala.events
-"""
+@medgalaofficial
+info@medgala.events
 
-            email = MIMEMultipart()
-            email["From"] = formataddr(("MED GALA Milano", "newsletter@medgala.events"))
-            email["Reply-To"] = "info@medgala.events"
-            email["To"] = mail
-            email["Subject"] = oggetto
-            email.attach(MIMEText(corpo, "plain"))
+-----------------------------------
 
-            server.sendmail(mailuser, mail, email.as_string())
-            server.quit()
+Hi {nome},
 
-    except Exception as e:
-        print("Errore welcome email:", e)
-    except psycopg.errors.UniqueViolation:
-        flash("Questa email è già iscritta.")
-        return redirect(url_for("aggiornamenti"))
+your priority access to MED GALA Milano has been confirmed.
 
-    except Exception as e:
-        import traceback
-        print("Errore salvataggio database:", repr(e))
-        traceback.print_exc()
-        flash(f"Errore durante il salvataggio: {e}")
-        return redirect(url_for("aggiornamenti"))
+You are now part of the community that will receive early access to all updates regarding the first inter-university gala dedicated to medical students in Milan.
 
-    # 2) invia mail di benvenuto
-    try:
-        mailuser = os.getenv("MAILUSER", "")
-        mailpass = os.getenv("MAILPASS", "")
+Over the next weeks you will receive:
+• exclusive updates
+• ticket release information
+• venue details
+• official event announcements
 
-        if mailuser != "" and mailpass != "":
-            server = smtplib.SMTP("smtp-relay.brevo.com", 587, timeout=10)
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
-            server.login(mailuser, mailpass)
+A night designed to bring together medicine, elegance and connection in one unique experience.
 
-            oggetto = "Welcome to MED GALA Milano"
-
-            corpo = f"""Hello {nome},
-
-You are now officially part of MED GALA Milano.
-
-An exclusive night where medicine meets elegance, bringing together students from the leading universities in Milan.
-
-You will receive early access to tickets, event details, and all upcoming announcements.
-
-We look forward to welcoming you.
+See you soon,
 
 MED GALA Milano
 @medgalaofficial
+info@medgala.events
 """
 
             email = MIMEMultipart()
@@ -183,7 +168,7 @@ MED GALA Milano
             server.quit()
 
     except Exception as e:
-        print("Errore invio email:", e)
+        print("Errore welcome email:", repr(e))
 
     flash("Iscrizione completata.")
     return redirect(url_for("aggiornamenti"))
