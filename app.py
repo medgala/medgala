@@ -104,8 +104,11 @@ def iscriviti():
         return redirect(url_for("aggiornamenti"))
 
     try:
+        print("WELCOME EMAIL BLOCK START")
         mailuser = os.getenv("MAILUSER", "")
         mailpass = os.getenv("MAILPASS", "")
+        print("MAILUSER presente:", bool(mailuser))
+        print("MAILPASS presente:", bool(mailpass))
 
         if mailuser and mailpass:
             server = smtplib.SMTP("smtp-relay.brevo.com", 587, timeout=10)
@@ -164,8 +167,12 @@ info@medgala.events
             email["Subject"] = oggetto
             email.attach(MIMEText(corpo, "plain"))
 
+            print("INVIO WELCOME EMAIL A:", mail)
+            print("INVIO WELCOME EMAIL A:", mail)
             server.sendmail(mailuser, mail, email.as_string())
             server.quit()
+            print("WELCOME EMAIL INVIATA")
+            print("WELCOME EMAIL INVIATA")
 
     except Exception as e:
         print("Errore welcome email:", repr(e))
